@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN" data-layout="portrait">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#161b18">
+  <title>踏风 · 竖屏骑行</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="stage" aria-label="踏风骑行">
+    <canvas id="c" aria-label="实时骑行画面"></canvas>
+    <section id="title" aria-labelledby="rideTitle">
+      <header class="masthead">
+        <h1 id="rideTitle">踏<span>风</span></h1>
+        <div class="wordmark" lang="en">Windhoof</div>
+      </header>
+      <div class="trip">
+        <div class="choice-row">
+          <span class="choice-label" id="placesLabel">地点</span>
+          <div id="places" class="choices" role="group" aria-labelledby="placesLabel"></div>
+        </div>
+        <div class="choice-row">
+          <span class="choice-label" id="scenesLabel">天气</span>
+          <div id="scenes" class="choices" role="group" aria-labelledby="scenesLabel"></div>
+        </div>
+        <button id="goText" type="button" disabled>正在备马…</button>
+      </div>
+    </section>
+    <section id="hud" aria-label="骑行控制" hidden>
+      <button type="button" id="menuToggle" aria-controls="options" aria-expanded="false">
+        <span class="menu-icon" aria-hidden="true"></span>设置
+      </button>
+      <div class="telemetry">
+        <span id="gait"></span>
+        <div class="readings">
+          <span id="speed"><b>0</b><small>km/h</small></span>
+          <span id="dist"><b>0.0</b><small>km</small></span>
+        </div>
+      </div>
+      <div id="hint" role="status"></div>
+      <div id="toast" role="status"><b></b><i></i></div>
+      <div class="pace" role="group" aria-label="调整步速">
+        <button id="tSlow" type="button">减速</button>
+        <button id="tFast" type="button"><span data-label>加速</span></button>
+      </div>
+      <section id="options" aria-labelledby="optionsTitle" hidden>
+        <div class="options-heading">
+          <h2 id="optionsTitle">骑行设置</h2>
+          <button id="closeOptions" type="button" aria-label="关闭设置">×</button>
+        </div>
+        <div class="option-buttons">
+          <button id="bPlace" type="button"><span>地点</span><b data-value>河谷草原</b></button>
+          <button id="bScene" type="button"><span>天气</span><b data-value>黄昏</b></button>
+          <button id="bView" type="button"><span>视角</span><b data-value>跟随</b></button>
+          <button id="bSound" type="button"><span>声音</span><b data-value>开</b></button>
+        </div>
+      </section>
+    </section>
+    <div id="err" role="alert"></div>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
